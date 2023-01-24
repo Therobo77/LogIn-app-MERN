@@ -1,55 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-function App() {
+// all imports for router;
+import Password from './Components/Password'
+import Profile from './Components/Profile'
+import Recovery from './Components/Recovery'
+import Register from './Components/Register'
+import Username from './Components/Username'
+import Reset from './Components/Reset';
+import PageNotFound from './Components/PageNotFound'
+
+
+// Root Routes
+
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element:<Username></Username>
+    },
+    {
+        path: '/register',
+        element:<Register></Register>
+    },
+    {
+        path: '/Password',
+        element:<Password></Password>
+    },
+    {
+        path: '/Profile',
+        element:<Profile></Profile>
+    },
+    {
+        path: '/Recovery',
+        element:<Recovery></Recovery>
+    },
+    {
+        path: '/Reset',
+        element:<Reset></Reset>
+    },
+    {
+        path: '*',
+        element:<PageNotFound></PageNotFound>
+    },
+    
+])
+
+
+const  App = () => {
   return (
-    <div className="App">
-    <h1>React app</h1>
-    </div>
-  );
+    <main>
+    <RouterProvider router={router}></RouterProvider>
+     </main>
+  )
 }
 
-export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { useMood } from 'mood'
-
-// const [ currentMood, updateMood ] = useMood('Happy :)')
-
-// export const aboutMe = {
-//       name: 'Vikash Lal',
-//       codeName: 'Fsa1bUsdC',      // shh, this is a secret!
-//       languages: ['Javascript','MERN Stack','ReactJS','Redux','NodeJS'],
-//       organization: 'Masai School'
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default  App
